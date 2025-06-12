@@ -3,7 +3,9 @@ package com.example.demo.domain.controller;
 
 import com.example.demo.domain.model.User;
 import com.example.demo.domain.model.dto.RegistRequestDto;
+import com.example.demo.domain.model.dto.RegistResponseDto;
 import com.example.demo.domain.service.LoginService;
+import com.example.demo.domain.service.RegisterService;
 import com.example.demo.global.config.CommonDto;
 import com.example.demo.global.config.ResultCode;
 import com.example.demo.global.config.ResultMessage;
@@ -20,11 +22,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class LoginController {
 
-    private final LoginService loginService;
+    private final RegisterService registerService;
 
     @PostMapping("/register")
     public CommonDto RegistController(@RequestBody RegistRequestDto registRequestDto) {
-
+        RegistResponseDto re = registerService.regist(registRequestDto);
 
 
         CommonDto commonDto = new CommonDto();
