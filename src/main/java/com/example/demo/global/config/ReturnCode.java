@@ -6,19 +6,24 @@ import lombok.Data;
 public class ReturnCode {
 
     /**
+     * Return Code 00 : Success
+     * */
+    public static final String RETURN_CODE_00 = "00";
+
+    /**
      * Return Code 01 : Register Validation Error - Input email, password, name Check
      * */
-    private final String RETURN_CODE_01 = "01";
+    public static final String RETURN_CODE_01 = "01";
 
     /**
      * Return Code 02 : Authorization Error - Login failed
      * */
-    private final String RETURN_CODE_02 = "02";
+    public static final String RETURN_CODE_02 = "02";
 
     /**
      * Return Code 03 : DB Error - DB access denied
      * */
-    private final String RETURN_CODE_03 = "03";
+    public static final String RETURN_CODE_03 = "03";
 
 //    /**
 //     *

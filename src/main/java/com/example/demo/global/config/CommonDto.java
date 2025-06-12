@@ -12,6 +12,8 @@ import lombok.Setter;
 public class CommonDto {
 
     private String ResultCode;
+
     private String ReturnCode;
+
     private String ResultMessage;
 }

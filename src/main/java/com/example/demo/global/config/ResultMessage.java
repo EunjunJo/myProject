@@ -9,25 +9,25 @@ public class ResultMessage {
      * Return Code : 00
      * Result Code : 100
      * */
-    private final String RESULT_MESSAGE_100_00 = "Success";
+    public static final String RESULT_MESSAGE_100_00 = "Success";
 
     /**
      * Return Code : 01
      * Result Code : 00
      * */
-    private final String RESULT_MESSAGE_101_01 = "Validation Error";
+    public static final String RESULT_MESSAGE_101_01 = "Validation Error";
 
     /**
      * Return Code : 01
      * Result Code : 00
      * */
-    private final String RESULT_MESSAGE_102_02 = "Authorization Error";
+    public static final String RESULT_MESSAGE_102_02 = "Authorization Error";
 
     /**
      * Return Code : 01
      * Result Code : 00
      * */
-    private final String RESULT_MESSAGE_103_03 = "DB Access Denied";
+    public static final String RESULT_MESSAGE_103_03 = "DB Access Denied";
 
 
 
