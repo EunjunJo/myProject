@@ -1,6 +1,7 @@
 package com.example.demo.domain.controller;
 
 
+import com.example.demo.domain.Exception.HandleCommonDtoException;
 import com.example.demo.domain.model.User;
 import com.example.demo.domain.model.dto.RegistRequestDto;
 import com.example.demo.domain.model.dto.RegistResponseDto;
@@ -25,24 +26,19 @@ public class LoginController {
     private final RegisterService registerService;
 
     @PostMapping("/register")
-    public CommonDto RegistController(@RequestBody RegistRequestDto registRequestDto) {
-        RegistResponseDto re = registerService.regist(registRequestDto);
+    public RegistResponseDto RegistController(@RequestBody RegistRequestDto registRequestDto) {
+
+        try {
+            RegistResponseDto re = registerService.regist(registRequestDto);
+            return re;
+        }
+        catch (Exception e) {
+             HandleCommonDtoException h = new HandleCommonDtoException();
 
 
-        CommonDto commonDto = new CommonDto();
 
-        commonDto.setResultCode(ResultCode.RESULT_CODE_100);
-        commonDto.setReturnCode(ReturnCode.RETURN_CODE_00);
-        commonDto.setResultMessage(ResultMessage.RESULT_MESSAGE_100_00);
-
-        return commonDto;
+            return null;
+        }
     }
-
-//    @PostMapping
-//    public CommonDto loginController(@RequestBody RegistRequestDto registRequestDto) throws Exception {
-//        User re = loginService.login(registRequestDto);
-//
-//
-//    }
 
 }

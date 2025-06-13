@@ -20,7 +20,11 @@ public class User {
 
     private boolean deleteFlag;
 
+    private int admin;
+
     private LocalDateTime createDate;
 
     private LocalDateTime updateDate;
+
+
 }
