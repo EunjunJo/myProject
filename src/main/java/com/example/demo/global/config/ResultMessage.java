@@ -10,7 +10,6 @@ public class ResultMessage {
      * Result Code : 100
      * */
     public static final String RESULT_MESSAGE_100_00 = "Success";
-
     /**
      * Return Code : 01
      * Result Code : 00
