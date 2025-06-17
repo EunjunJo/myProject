@@ -55,4 +55,14 @@ public class CommonDtoFactory {
         return commonDto;
     }
 
+    public static CommonDto success() {
+        CommonDto commonDto = new CommonDto();
+
+        commonDto.setReturnCode(ReturnCode.RETURN_CODE_00);
+        commonDto.setResultCode(ResultCode.RESULT_CODE_100);
+        commonDto.setResultMessage(ResultMessage.RESULT_MESSAGE_100_00);
+
+        return commonDto;
+    }
+
 }
