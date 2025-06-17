@@ -1,4 +1,4 @@
-package com.example.demo.domain.register.Exception;
+package com.example.demo.global.Exception;
 
 import com.example.demo.domain.register.model.dto.RegistRequestDto;
 import com.example.demo.global.common.CommonDto;

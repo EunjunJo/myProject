@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CommonDto {
-
     private String ResultCode;
 
     private String ReturnCode;
