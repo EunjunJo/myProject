@@ -7,7 +7,7 @@ import com.example.demo.domain.model.dto.RegistResponseDto;
 import com.example.demo.domain.service.RegisterService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataAccessException;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.security.authorization.AuthorizationDeniedException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +25,7 @@ public class RegisterController {
     public RegistResponseDto RegistController(@RequestBody RegistRequestDto registRequestDto) {
 
         try {
+            validationCheck(registRequestDto);
             return registerService.regist(registRequestDto);
         }
         catch (DataAccessException e) {
@@ -33,7 +34,29 @@ public class RegisterController {
             rrd.setCommonDto(CommonDtoFactory.dbAccessDenied());
             return rrd;
         }
+        catch (AuthorizationDeniedException e) {
+            RegistResponseDto rrd = new RegistResponseDto();
+            rrd.setRegistRequestDto(null);
+            rrd.setCommonDto(CommonDtoFactory.authorizationError());
+            return rrd;
+        }
 
+    }
+
+    public void validationCheck(RegistRequestDto registRequestDto) {
+
+        if(registRequestDto.getName().length() > 4
+            || registRequestDto.getName().length() < 2) {
+            CommonDtoFactory.nameValidationError();
+        }
+        if(registRequestDto.getPassword().length() > 25
+            || registRequestDto.getPassword().length() < 8) {
+            CommonDtoFactory.passwordValidationError();
+        }
+        if(registRequestDto.getEmail().length() > 30
+            || registRequestDto.getEmail().length() < 12) {
+            CommonDtoFactory.emailValidationCheck();
+        }
 
     }
 

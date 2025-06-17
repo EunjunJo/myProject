@@ -11,7 +11,7 @@ public class ReturnCode {
     public static final String RETURN_CODE_00 = "00";
 
     /**
-     * Return Code 01 : Register Validation Error - Input email, password, name Check
+     * Return Code 01 : Validation Error - name Check
      * */
     public static final String RETURN_CODE_01 = "01";
 
@@ -25,10 +25,14 @@ public class ReturnCode {
      * */
     public static final String RETURN_CODE_03 = "03";
 
-//    /**
-//     *
-//     * */
-//    private final String RETURN_CODE_04 = "04";
-//    private final String RETURN_CODE_05 = "05";
+    /**
+     * Return Code 04 : Validation Error - password Check
+     * */
+    public static final String RETURN_CODE_04 = "04";
+
+    /**
+     * Return Code 05 : Validation Error - email Check
+     * */
+    public static final String RETURN_CODE_05 = "05";
 //    private final String RETURN_CODE_06 = "06";
 }

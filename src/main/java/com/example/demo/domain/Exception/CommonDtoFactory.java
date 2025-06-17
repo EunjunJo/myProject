@@ -8,11 +8,20 @@ import com.example.demo.global.config.ReturnCode;
 
 public class CommonDtoFactory {
 
-    public static CommonDto validationError() {
+    public static CommonDto nameValidationError() {
         CommonDto commonDto = new CommonDto();
         commonDto.setResultCode(ResultCode.RESULT_CODE_101);
         commonDto.setReturnCode(ReturnCode.RETURN_CODE_01);
         commonDto.setResultMessage(ResultMessage.RESULT_MESSAGE_101_01);
+
+        return commonDto;
+    }
+
+    public static CommonDto passwordValidationError() {
+        CommonDto commonDto = new CommonDto();
+        commonDto.setResultCode(ResultCode.RESULT_CODE_104);
+        commonDto.setReturnCode(ReturnCode.RETURN_CODE_04);
+        commonDto.setResultMessage(ResultMessage.RESULT_MESSAGE_104_04);
 
         return commonDto;
     }
@@ -34,7 +43,16 @@ public class CommonDtoFactory {
         commonDto.setResultMessage(ResultMessage.RESULT_MESSAGE_102_02);
 
         return commonDto;
+    }
 
+    public static CommonDto emailValidationCheck() {
+        CommonDto commonDto = new CommonDto();
+
+        commonDto.setReturnCode(ReturnCode.RETURN_CODE_05);
+        commonDto.setResultCode(ResultCode.RESULT_CODE_105);
+        commonDto.setResultMessage(ResultMessage.RESULT_MESSAGE_105_05);
+
+        return commonDto;
     }
 
 }
