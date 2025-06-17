@@ -1,4 +1,4 @@
-package com.example.demo.global.config;
+package com.example.demo.global.common;
 
 import lombok.Data;
 
@@ -34,5 +34,14 @@ public class ReturnCode {
      * Return Code 05 : Validation Error - email Check
      * */
     public static final String RETURN_CODE_05 = "05";
-//    private final String RETURN_CODE_06 = "06";
+
+    /**
+     * Return Code 06 : DuplicationError - email Check
+     * */
+    public static final String RETURN_CODE_06 = "06";
+
+    /**
+     * Return Code 07 : ValidationError - special Characters
+     * */
+    public static final String RETURN_CODE_07 = "07";
 }

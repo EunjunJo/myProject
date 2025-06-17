@@ -14,12 +14,13 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(AbstractHttpConfigurer::disable) // CSRF 비활성화 (개발용)
+            .csrf(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests(auth -> auth
-                .anyRequest().permitAll() // 임시로 모든 요청 허용 (테스트용)
+                .requestMatchers("/register/**").permitAll()
+
             )
-            .formLogin(AbstractHttpConfigurer::disable) // 폼 로그인 비활성화
-            .httpBasic(AbstractHttpConfigurer::disable); // HTTP Basic 인증 비활성화
+            .formLogin(AbstractHttpConfigurer::disable)
+            .httpBasic(AbstractHttpConfigurer::disable);
 
         return http.build();
     }

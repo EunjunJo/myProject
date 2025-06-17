@@ -1,7 +1,6 @@
-package com.example.demo.domain.model;
+package com.example.demo.domain.register.model;
 
-
-import com.example.demo.domain.model.enums.Role;
+import com.example.demo.domain.register.model.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +11,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Data
 public class User {
+
     private int seqNumber;
 
     private String email;

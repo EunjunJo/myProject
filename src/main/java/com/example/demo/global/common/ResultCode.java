@@ -1,4 +1,4 @@
-package com.example.demo.global.config;
+package com.example.demo.global.common;
 
 import lombok.Data;
 @Data
@@ -31,7 +31,20 @@ public class ResultCode {
      * */
     public static final String RESULT_CODE_105 = "105";
 
-//    private final String RESULT_CODE_106 = "106";
+    /**
+     * Return Code 06  duplicationError - exist Email
+     * */
+    public static final String RESULT_CODE_106 = "106";
+
+    /**
+     * Return Code 07  ValidationError - special Characters Check
+     * */
+    public static final String RESULT_CODE_107 = "107";
+
+    /**
+     * Return Code 07  ValidationError - special Characters Check
+     * */
+    public static final String RESULT_CODE_108 = "108";
 
 
 }

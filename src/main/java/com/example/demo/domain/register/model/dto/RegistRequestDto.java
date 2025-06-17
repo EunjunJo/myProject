@@ -1,7 +1,5 @@
-package com.example.demo.domain.model.dto;
+package com.example.demo.domain.register.model.dto;
 
-
-import com.example.demo.global.config.CommonDto;
 import java.time.LocalDateTime;
 import lombok.*;
 
@@ -11,7 +9,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class RegistRequestDto {
-
     private String email;
 
     private String password;

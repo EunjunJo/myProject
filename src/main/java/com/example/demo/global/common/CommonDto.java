@@ -1,10 +1,9 @@
-package com.example.demo.global.config;
+package com.example.demo.global.common;
 
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Data
 @AllArgsConstructor
