@@ -1,22 +1,30 @@
 package com.example.demo.global.config;
 
+import java.util.List;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 
 @Configuration
 public class SecurityConfig {
 
+    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable()) // CSRF 비활성화 (개발용)
+
+            .csrf(AbstractHttpConfigurer::disable) // CSRF 비활성화 (개발용)
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/login", "/css/**", "/js/**").permitAll() // 공개 경로
-                .anyRequest().authenticated() // 나머지는 인증 필요
+                .requestMatchers("/register/**" ).permitAll() // 공개 경로
+                .anyRequest().authenticated()
             )
             .formLogin(form -> form
-                .loginPage("/login") // 커스텀 로그인 페이지
+                .loginPage("/") // 커스텀 로그인 페이지
                 .defaultSuccessUrl("/") // 로그인 성공 시 리디렉션
                 .permitAll()
             )
@@ -28,4 +36,5 @@ public class SecurityConfig {
 
             return http.build();
     }
+
 }

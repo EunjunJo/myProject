@@ -1,6 +1,7 @@
 package com.example.demo.domain.model;
 
 
+import com.example.demo.domain.model.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,5 +27,7 @@ public class User {
 
     private LocalDateTime updateDate;
 
-
+    public Role getRole(){
+        return admin==1? Role.ADMIN : Role.USER;
+    }
 }

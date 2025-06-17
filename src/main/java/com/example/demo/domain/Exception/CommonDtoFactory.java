@@ -4,17 +4,11 @@ import com.example.demo.global.config.CommonDto;
 import com.example.demo.global.config.ResultCode;
 import com.example.demo.global.config.ResultMessage;
 import com.example.demo.global.config.ReturnCode;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
-public class HandleCommonDtoException {
 
 
-    private CommonDto validationError() {
+public class CommonDtoFactory {
+
+    public static CommonDto validationError() {
         CommonDto commonDto = new CommonDto();
         commonDto.setResultCode(ResultCode.RESULT_CODE_101);
         commonDto.setReturnCode(ReturnCode.RETURN_CODE_01);
@@ -23,8 +17,7 @@ public class HandleCommonDtoException {
         return commonDto;
     }
 
-
-    private CommonDto dbAccessDenied() {
+    public static CommonDto dbAccessDenied() {
         CommonDto commonDto = new CommonDto();
         commonDto.setResultCode(ResultCode.RESULT_CODE_103);
         commonDto.setReturnCode(ReturnCode.RETURN_CODE_03);
@@ -33,7 +26,7 @@ public class HandleCommonDtoException {
         return commonDto;
     }
 
-    private CommonDto authorizationError() {
+    public static CommonDto authorizationError() {
         CommonDto commonDto = new CommonDto();
 
         commonDto.setResultCode(ResultCode.RESULT_CODE_102);

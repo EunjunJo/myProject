@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.demo.domain.repository.mapper.UserMapper">
 
-    <insert id = "register" parameterType="com.example.demo.domain.model.User">
-        INSERT INTO eunjun_project.user (name, email, password, createDate)
-        VALUES (#{name}, #{email}, #{password}, #{createDate})
-    </insert>
+  <insert id="register" parameterType="com.example.demo.domain.model.User"  keyProperty="seqNumber">
+    INSERT INTO eunjun_project.user (name, email, password,admin, deleteFlag, createDate,
+    updateDate)
+    VALUES (#{name}, #{email}, #{password}, #{admin},#{deleteFlag}, #{createDate}, #{updateDate})
+  </insert>
 
 
 </mapper>
