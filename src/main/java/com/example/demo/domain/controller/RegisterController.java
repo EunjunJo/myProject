@@ -25,39 +25,45 @@ public class RegisterController {
     public RegistResponseDto RegistController(@RequestBody RegistRequestDto registRequestDto) {
 
         try {
-            validationCheck(registRequestDto);
-            return registerService.regist(registRequestDto);
-        }
-        catch (DataAccessException e) {
+            String validationError = validationCheck(registRequestDto);
+            if (validationError != null) {
+                RegistResponseDto rrd = new RegistResponseDto();
+                rrd.setRegistRequestDto(null);
+                if (validationError.equals("name")) {
+                    rrd.setCommonDto(CommonDtoFactory.nameValidationError()); // 임시로 name validation 에러 사용
+                } else if (validationError.equals("password")) {
+                    rrd.setCommonDto(CommonDtoFactory.passwordValidationError());
+                } else if (validationError.equals("email")) {
+                    rrd.setCommonDto(CommonDtoFactory.emailValidationCheck());
+                }
+                return rrd;
+            } else {
+                return registerService.regist(registRequestDto);
+            }
+        } catch (DataAccessException e) {
             RegistResponseDto rrd = new RegistResponseDto();
             rrd.setRegistRequestDto(null);
             rrd.setCommonDto(CommonDtoFactory.dbAccessDenied());
             return rrd;
         }
-        catch (AuthorizationDeniedException e) {
-            RegistResponseDto rrd = new RegistResponseDto();
-            rrd.setRegistRequestDto(null);
-            rrd.setCommonDto(CommonDtoFactory.authorizationError());
-            return rrd;
-        }
-
     }
 
-    public void validationCheck(RegistRequestDto registRequestDto) {
+    public String validationCheck(RegistRequestDto registRequestDto) {
 
-        if(registRequestDto.getName().length() > 4
+        if (registRequestDto.getName() == null || registRequestDto.getName().length() > 4
             || registRequestDto.getName().length() < 2) {
-            CommonDtoFactory.nameValidationError();
+            return "name";
         }
-        if(registRequestDto.getPassword().length() > 25
+        if (registRequestDto.getPassword() == null || registRequestDto.getPassword().length() > 25
             || registRequestDto.getPassword().length() < 8) {
-            CommonDtoFactory.passwordValidationError();
+            return "password";
         }
-        if(registRequestDto.getEmail().length() > 30
+        if (registRequestDto.getEmail() == null || registRequestDto.getEmail().length() > 30
             || registRequestDto.getEmail().length() < 12) {
-            CommonDtoFactory.emailValidationCheck();
+            return "email";
         }
 
+        return null; // validation 통과
     }
 
 }

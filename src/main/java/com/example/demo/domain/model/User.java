@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Data
 public class User {
+    private int seqNumber;
 
     private String email;
 
@@ -21,13 +22,13 @@ public class User {
 
     private boolean deleteFlag;
 
-    private int admin;
+    private int isAdmin;
 
     private LocalDateTime createDate;
 
     private LocalDateTime updateDate;
 
     public Role getRole(){
-        return admin==1? Role.ADMIN : Role.USER;
+        return isAdmin==1? Role.ADMIN : Role.USER;
     }
 }

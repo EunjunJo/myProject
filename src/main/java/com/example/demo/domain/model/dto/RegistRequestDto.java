@@ -18,7 +18,7 @@ public class RegistRequestDto {
 
     private String name;
 
-    private int admin;
+    private int isAdmin;
 
     private boolean deleteFlag;
 
