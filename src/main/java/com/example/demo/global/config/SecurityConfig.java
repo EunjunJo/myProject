@@ -23,8 +23,10 @@ public class SecurityConfig {
         http
             .csrf(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/register/**", "/auth/login/**").permitAll()
-
+                .requestMatchers("/register").permitAll()
+                .requestMatchers("/register/**").permitAll()
+                .requestMatchers("/auth/login").permitAll()
+                .anyRequest().authenticated()
             )
             .addFilterBefore(new JwtAuthFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class)
             .formLogin(AbstractHttpConfigurer::disable)

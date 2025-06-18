@@ -10,9 +10,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class LoginResponseDto {
-
-    private LoginRequestDto loginRequestDto;
-
+    private String email;
+    private String password;
+    private String username;
+    private int seqNumber;
+    private String token;
     @JsonUnwrapped
     private CommonDto commonDto;
 }

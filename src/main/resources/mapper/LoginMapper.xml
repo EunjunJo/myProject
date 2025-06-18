@@ -5,7 +5,7 @@
 
 <mapper namespace="com.example.demo.domain.login.repository.mapper.LoginMapper">
   <select id="findByUsername" resultType="com.example.demo.domain.register.model.User">
-    SELECT seqNumber, name, email, password, admin, deleteFlag, createDate, updateDate 
+    SELECT seqNumber, name, email, password, isAdmin, deleteFlag, createDate, updateDate
     FROM eunjun.user
     WHERE email = #{email} AND password = #{password}
   </select>

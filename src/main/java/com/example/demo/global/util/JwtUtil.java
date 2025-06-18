@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class JwtUtil {
-    private final long EXPIRATION_TIME = 1000 * 60 * 60;
+    private final long EXPIRATION_TIME = 1000 * 60 * 60; // 1시간
     private final String SECRET_KEY = "YourSecretKeyMustBeLongEnoughForHS256ToworkProperly!";
 
     private Key getSignKey() {
@@ -22,7 +22,7 @@ public class JwtUtil {
             .setSubject(username)
             .setIssuedAt(new Date())
             .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
-            .signWith(getSignKey(), SignatureAlgorithm.ES256)
+            .signWith(getSignKey(), SignatureAlgorithm.HS256)
             .compact();
     }
     public String extractUsername(String token) {
