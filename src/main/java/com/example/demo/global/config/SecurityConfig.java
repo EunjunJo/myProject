@@ -26,6 +26,7 @@ public class SecurityConfig {
                 .requestMatchers("/register").permitAll()
                 .requestMatchers("/register/**").permitAll()
                 .requestMatchers("/auth/login").permitAll()
+                .requestMatchers("/auth/**").permitAll()
                 .anyRequest().authenticated()
             )
             .addFilterBefore(new JwtAuthFilter(jwtUtil), UsernamePasswordAuthenticationFilter.class)

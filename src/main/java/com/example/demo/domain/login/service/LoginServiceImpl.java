@@ -30,22 +30,22 @@ public class LoginServiceImpl implements LoginService {
             responseDto.setUsername(user.getName());
             responseDto.setSeqNumber(user.getSeqNumber());
             responseDto.setToken("dummy-token-" + System.currentTimeMillis()); // 임시 토큰 생성
-            
-            // 성공 CommonDto 생성
+
+
             CommonDto commonDto = new CommonDto();
             commonDto.setResultCode(ResultCode.RESULT_CODE_100);
             commonDto.setReturnCode(ReturnCode.RETURN_CODE_00);
             commonDto.setResultMessage(ResultMessage.RESULT_MESSAGE_100_00);
             responseDto.setCommonDto(commonDto);
         } else {
-            // 로그인 실패
+
             responseDto.setEmail(null);
             responseDto.setPassword(null);
             responseDto.setUsername(null);
             responseDto.setSeqNumber(0);
             responseDto.setToken(null);
-            
-            // 실패 CommonDto 생성
+
+
             CommonDto commonDto = new CommonDto();
             commonDto.setResultCode(ResultCode.RESULT_CODE_102);
             commonDto.setReturnCode(ReturnCode.RETURN_CODE_02);
