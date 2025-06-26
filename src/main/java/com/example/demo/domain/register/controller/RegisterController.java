@@ -71,12 +71,6 @@ public class RegisterController {
             rrd.setCommonDto(CommonDtoFactory.dbAccessDenied());
             return rrd;
         }
-        catch (DuplicateMemberException e) {
-            RegistResponseDto rrd = new RegistResponseDto();
-            rrd.setRegistRequestDto(null);
-            rrd.setCommonDto(CommonDtoFactory.existUser());
-            return rrd;
-        }
     }
 
 

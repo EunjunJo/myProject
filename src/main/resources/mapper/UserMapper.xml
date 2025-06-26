@@ -3,12 +3,17 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.example.demo.domain.repository.mapper.UserMapper">
-
-
-  <insert id="Register" parameterType="com.example.demo.domain.model.dto.RegistRequestDto" keyProperty="seqNumber">
+<mapper namespace="com.example.demo.domain.register.repository.mapper.UserMapper">
+  <insert id="Register" parameterType="com.example.demo.domain.register.model.dto.RegistRequestDto" keyProperty="seqNumber">
     INSERT INTO eunjun.user (name, email, password, isAdmin, deleteFlag, createDate, updateDate)
-    VALUES (#{name}, #{email}, #{password}, #{isAdmin}, 0, NOW(), NOW())
+    VALUES (#{name}, #{email}, #{password}, #{isAdmin}, false, NOW(), NOW())
   </insert>
-
+  <select id="existByEmail" parameterType="string" resultType="int">
+    SELECT COUNT(*) FROM eunjun.user WHERE email = #{email}
+  </select>
+  <select id="findByEmail" parameterType="string" resultType="com.example.demo.domain.register.model.dto.UserDto">
+    SELECT seqNumber, name, email, password, isAdmin, deleteFlag, createDate, updateDate
+    FROM eunjun.user
+    WHERE email = #{email}
+  </select>
 </mapper>

@@ -13,7 +13,7 @@ public class WebConfig implements WebMvcConfigurer {
     // CORS 설정
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-            .allowedOriginPatterns("*") // 모든 origin 허용 (개발용)
+            .allowedOriginPatterns("http://localhost:5173   ") // 모든 origin 허용 (개발용)
             .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
             .allowedHeaders("*")
             .allowCredentials(true);

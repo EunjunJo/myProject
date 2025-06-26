@@ -1,5 +1,7 @@
 package com.example.demo.domain.register.repository;
 
+import com.example.demo.domain.register.model.User;
+import com.example.demo.domain.register.model.dto.UserDto;
 import com.example.demo.global.Exception.CommonDtoFactory;
 import com.example.demo.domain.register.model.dto.RegistRequestDto;
 import com.example.demo.domain.register.model.dto.RegistResponseDto;
@@ -36,6 +38,11 @@ public class UserDAOImpl implements UserDAO {
         }
         
         return responseDto;
+    }
+
+    @Override
+    public UserDto findByEmail(String email) {
+        return userMapper.findByEmail(email);
     }
 
 }
